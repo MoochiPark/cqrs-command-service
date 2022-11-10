@@ -10,18 +10,18 @@ import reactor.rabbitmq.OutboundMessage
 import reactor.rabbitmq.QueueSpecification
 import reactor.rabbitmq.Sender
 
+private const val QUEUE: String = "cqrs-rabbitmq-queue"
 @Component
 class SensingDataMessageProducer(
     private val sender: Sender,
 ) : RegisterMessagePort {
-    private val queue: String = "cqrs-rabbitmq-queue"
 
     override suspend fun sendRegister(message: SensingDataMessage.Register) {
         val confirmation =
             sender.sendWithPublishConfirms(
-                OutboundMessage("", queue, message.toByteArray()).toMono()
+                OutboundMessage("", QUEUE, message.toByteArray()).toMono(),
             )
-        sender.declareQueue(QueueSpecification.queue(queue))
+        sender.declareQueue(QueueSpecification.queue(QUEUE))
             .thenMany(confirmation)
             .doOnError { e -> error("Send failed $e") }
             .subscribe { result ->
