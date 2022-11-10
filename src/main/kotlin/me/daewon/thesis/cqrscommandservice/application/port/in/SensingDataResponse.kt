@@ -6,6 +6,7 @@ import me.daewon.thesis.cqrscommandservice.domain.SensingData
 sealed interface SensingDataResponse {
     data class Register(
         val id: String?,
+        val serialNumber: String,
         val data: String,
         val sensingTime: LocalDateTime,
     ) : SensingDataResponse {
@@ -13,6 +14,7 @@ sealed interface SensingDataResponse {
             fun from(sensingData: SensingData): Register =
                 Register(
                     sensingData.id,
+                    sensingData.serialNumber,
                     sensingData.data,
                     sensingData.sensingTime
                 )

@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class SensingDataDocument(
     @Id
     val id: String? = null,
+    val serialNumber: String,
     val data: String,
     val sensingTime: LocalDateTime,
 ) {
@@ -16,11 +17,12 @@ data class SensingDataDocument(
         fun from(sensingData: SensingData): SensingDataDocument =
             SensingDataDocument(
                 id = sensingData.id,
+                serialNumber = sensingData.serialNumber,
                 data = sensingData.data,
                 sensingTime = sensingData.sensingTime,
             )
     }
 
     fun toDomain(): SensingData =
-        SensingData(id, data, sensingTime)
+        SensingData(id, serialNumber, data, sensingTime)
 }
