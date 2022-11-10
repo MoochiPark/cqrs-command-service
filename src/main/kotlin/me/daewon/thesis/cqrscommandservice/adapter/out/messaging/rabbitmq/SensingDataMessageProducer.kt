@@ -19,7 +19,7 @@ class SensingDataMessageProducer(
     override suspend fun sendRegister(message: SensingDataMessage.Register) {
         val confirmation =
             sender.sendWithPublishConfirms(
-                OutboundMessage("", QUEUE, message.toByteArray()).toMono(),
+                OutboundMessage("", QUEUE, message.toJsonByteArray()).toMono(),
             )
         sender.declareQueue(QueueSpecification.queue(QUEUE))
             .thenMany(confirmation)

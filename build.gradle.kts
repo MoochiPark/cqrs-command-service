@@ -22,8 +22,6 @@ dependencies {
     implementation("io.projectreactor.rabbitmq:reactor-rabbitmq:1.5.5")
     implementation("org.springframework.amqp:spring-rabbit:2.4.7")
 
-    implementation("io.lettuce:lettuce-core:6.2.1.RELEASE")
-
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
