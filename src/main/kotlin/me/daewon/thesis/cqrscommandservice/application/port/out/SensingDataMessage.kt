@@ -16,7 +16,7 @@ private val mapper: ObjectMapper = jsonMapper {
 
 sealed interface SensingDataMessage {
     data class Register(
-        val id: String?,
+        val id: String,
         val serialNumber: String,
         val data: String,
         val sensingTime: LocalDateTime,
@@ -24,7 +24,8 @@ sealed interface SensingDataMessage {
         companion object {
             fun from(sensingData: SensingData): Register =
                 Register(
-                    sensingData.id,
+                    sensingData.id
+                        ?: throw IllegalArgumentException("id must be not null"),
                     sensingData.serialNumber,
                     sensingData.data,
                     sensingData.sensingTime

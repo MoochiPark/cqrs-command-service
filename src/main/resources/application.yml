@@ -4,11 +4,12 @@ spring:
       authentication-database: admin
       host: localhost
       port: 27017
-      username: admin
-      password: root
+      username: moochi
+      password: test
       database: cqrs-command
   rabbitmq:
     host: localhost
     port: 5672
-    username: guest
-    password: guest
+    username: moochi
+    password: test
+    virtual-host: test

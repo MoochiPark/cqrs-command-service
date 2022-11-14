@@ -20,6 +20,7 @@ class RabbitConfig {
                 port = rabbitProperties.port
                 username = rabbitProperties.username
                 password = rabbitProperties.password
+                virtualHost = rabbitProperties.virtualHost
             }
             .newConnection("cqrs-rabbitmq")
     }.cache()
