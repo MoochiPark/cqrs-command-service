@@ -22,7 +22,6 @@ class RegisterSensingDataService(
         command.toDomain().let {
             saveSensingDataPort.save(it).let { result ->
                 CoroutineScope(Dispatchers.IO).launch {
-                    println(result)
                     sendMessagePort.sendRegister(
                         SensingDataMessage.Register.from(result)
                     )
