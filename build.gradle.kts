@@ -22,12 +22,17 @@ dependencies {
     implementation("io.projectreactor.rabbitmq:reactor-rabbitmq:1.5.5")
     implementation("org.springframework.amqp:spring-rabbit:2.4.7")
 
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("io.lettuce:lettuce-core:6.2.1.RELEASE")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
+
+    implementation("org.apache.commons:commons-pool2:2.11.1")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")

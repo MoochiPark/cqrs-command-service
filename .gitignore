@@ -67,6 +67,7 @@ cmake-build-*/
 
 # IntelliJ
 src/main/resources/docker/mongo/data/
+src/main/resources/docker/redis/data/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

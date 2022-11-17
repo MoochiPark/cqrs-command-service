@@ -7,9 +7,27 @@ spring:
       username: moochi
       password: test
       database: cqrs-command
+
   rabbitmq:
     host: localhost
     port: 5672
     username: moochi
     password: test
     virtual-host: test
+
+  redis:
+#    host: 127.0.0.1
+    host: 192.168.30.221
+    port: 6379
+
+    lettuce:
+      pool:
+        enabled: true
+        max-active: 50
+        max-idle: 32
+
+logging:
+  level:
+    reactor:
+      netty:
+        tcp: debug
